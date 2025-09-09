@@ -69,7 +69,7 @@ def generate_math_pdf():
 def index():
     return '<a href="/generate_pdf" target="_blank">計算問題PDFを生成</a>'
 
-@app.route("/generate_pdf")
+@app.route("/pm1_pdf")
 def generate_pdf():
     pdf_buffer = generate_math_pdf()
     return Response(pdf_buffer, mimetype="application/pdf")

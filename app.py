@@ -147,7 +147,6 @@ def generate_pdf_1digit():
     return send_file(
         pdf_buffer,
         mimetype="application/pdf",
-        as_attachment=True,
         download_name=file_name_1
     )
 
@@ -158,7 +157,6 @@ def generate_pdf_2digit():
     return send_file(
         pdf_buffer,
         mimetype="application/pdf",
-        as_attachment=True,
         download_name=file_name_2
     )
 

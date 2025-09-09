@@ -135,12 +135,12 @@ def index():
     return render_template_string('''
     <h1>計算問題PDF生成</h1>
     <ul>
-        <li><a href="/generate_pdf_1digit" target="_blank">1ケタの計算問題</a></li>
-        <li><a href="/generate_pdf_2digit" target="_blank">2ケタの計算問題</a></li>
+        <li><a href="/pm_1digit" target="_blank">1ケタの計算問題</a></li>
+        <li><a href="/pm_2digit" target="_blank">2ケタの計算問題</a></li>
     </ul>
     ''')
 
-@app.route("/generate_pdf_1digit")
+@app.route("/pm_1digit")
 def generate_pdf_1digit():
     pdf_buffer = generate_math_pdf()
     file_name_1 = "足し算・引き算（1ケタ）.pdf"
@@ -150,7 +150,7 @@ def generate_pdf_1digit():
         download_name=file_name_1
     )
 
-@app.route("/generate_pdf_2digit")
+@app.route("/pm_2digit")
 def generate_pdf_2digit():
     pdf_buffer = generate_2digit_math_pdf()
     file_name_2 = "足し算・引き算（2ケタ）.pdf"

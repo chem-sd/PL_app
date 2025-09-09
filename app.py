@@ -143,14 +143,25 @@ def index():
 @app.route("/generate_pdf_1digit")
 def generate_pdf_1digit():
     pdf_buffer = generate_math_pdf()
-    file_name_1 = f"足し算・引き算（1ケタ）.pdf"
-    return Response(pdf_buffer, mimetype="application/pdf", download_name=file_name_1)
+    file_name_1 = "足し算・引き算（1ケタ）.pdf"
+    return send_file(
+        pdf_buffer,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=file_name_1
+    )
 
 @app.route("/generate_pdf_2digit")
 def generate_pdf_2digit():
     pdf_buffer = generate_2digit_math_pdf()
-    file_name_2 = f"足し算・引き算（2ケタ）.pdf"
-    return send_file(pdf_buffer, mimetype="application/pdf", download_name=file_name_2)
+    file_name_2 = "足し算・引き算（2ケタ）.pdf"
+    return send_file(
+        pdf_buffer,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=file_name_2
+    )
+
 
 
 if __name__ == "__main__":

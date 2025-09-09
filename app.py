@@ -143,13 +143,13 @@ def index():
 @app.route("/generate_pdf_1digit")
 def generate_pdf_1digit():
     pdf_buffer = generate_math_pdf()
+    file_name = f"足し算・引き算（1ケタ）.pdf"
     return Response(pdf_buffer, mimetype="application/pdf")
 
 @app.route("/generate_pdf_2digit")
 def generate_pdf_2digit():
     pdf_buffer = generate_2digit_math_pdf()
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    file_name = f"2digit_{timestamp}.pdf"
+    file_name = f"足し算・引き算（2ケタ）.pdf"
     return send_file(pdf_buffer, mimetype="application/pdf", download_name=file_name)
 
 

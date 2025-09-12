@@ -339,41 +339,45 @@ def generate_1digit_div_pdf():
     generated = set()
     i = 1
     while i <= num_questions:
-        a, b = random.randint(1, 9), random.randint(1, a)
-        result = a / b
-        que = f" {a} ÷ {b}"
-        q = f"({i}) {a} ÷ {b}"
-        if que not in generated:
-            questions.append(q)
+        b = random.randint(1, 9)          # 割る数
+        result = random.randint(1, 9)     # 答えを先に決める
+        a = b * result                    # 割られる数（必ず割り切れる）
+
+        q_text = f"({i}) {a} ÷ {b}"
+        if q_text not in generated:
+            questions.append(q_text)
             answers.append(result)
-            generated.add(que)
+            generated.add(q_text)
             i += 1
 
     buffer = io.BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=portrait(A4))
     pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
 
+    # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'わり算（1ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（1ケタ）')
 
+    # 問題
     pdf.setFont('Times-Roman', 12)
-    start_y = 25.5*cm
-    line_h = 0.8*cm
-    half = num_questions//2
+    start_y = 25.5 * cm
+    line_h = 0.8 * cm
+    half = num_questions // 2
     for i, q in enumerate(questions):
         if i < half:
-            x, y = 2*cm, start_y-(i*line_h*2.5)
+            x, y = 2 * cm, start_y - (i * line_h * 2.5)
         else:
-            x, y = 11.5*cm, start_y-((i-half)*line_h*2.5)
+            x, y = 11.5 * cm, start_y - ((i - half) * line_h * 2.5)
         pdf.drawString(x, y, q)
 
+    # 解答
     pdf.setFont('HeiseiKakuGo-W5', 18)
-    pdf.drawString(2*cm, 5*cm, '【解答】')
+    pdf.drawString(2 * cm, 5 * cm, '【解答】')
     pdf.setFont('Times-Roman', 12)
     for i, ans in enumerate(answers):
-        x = 2*cm+(i%5)*3.5*cm
-        y = 4*cm-(i//5)*0.7*cm
+        x = 2 * cm + (i % 5) * 3.5 * cm
+        y = 4 * cm - (i // 5) * 0.7 * cm
         pdf.drawString(x, y, f"({i+1}) {ans}")
 
     pdf.save()
@@ -389,41 +393,45 @@ def generate_2digit_div_pdf():
     generated = set()
     i = 1
     while i <= num_questions:
-        a, b = random.randint(1, 99), random.randint(1, a)
-        result = a / b
-        que = f" {a} ÷ {b}"
-        q = f"({i}) {a} ÷ {b}"
-        if que not in generated:
-            questions.append(q)
+        b = random.randint(1, 99)          # 割る数
+        result = random.randint(1, 9)     # 答えを先に決める
+        a = b * result                    # 割られる数（必ず割り切れる）
+
+        q_text = f"({i}) {a} ÷ {b}"
+        if q_text not in generated:
+            questions.append(q_text)
             answers.append(result)
-            generated.add(que)
+            generated.add(q_text)
             i += 1
 
     buffer = io.BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=portrait(A4))
     pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
 
+    # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'わり算（2ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（2ケタ）')
 
+    # 問題
     pdf.setFont('Times-Roman', 12)
-    start_y = 25.5*cm
-    line_h = 0.8*cm
-    half = num_questions//2
+    start_y = 25.5 * cm
+    line_h = 0.8 * cm
+    half = num_questions // 2
     for i, q in enumerate(questions):
         if i < half:
-            x, y = 2*cm, start_y-(i*line_h*2.5)
+            x, y = 2 * cm, start_y - (i * line_h * 2.5)
         else:
-            x, y = 11.5*cm, start_y-((i-half)*line_h*2.5)
+            x, y = 11.5 * cm, start_y - ((i - half) * line_h * 2.5)
         pdf.drawString(x, y, q)
 
+    # 解答
     pdf.setFont('HeiseiKakuGo-W5', 18)
-    pdf.drawString(2*cm, 5*cm, '【解答】')
+    pdf.drawString(2 * cm, 5 * cm, '【解答】')
     pdf.setFont('Times-Roman', 12)
     for i, ans in enumerate(answers):
-        x = 2*cm+(i%5)*3.5*cm
-        y = 4*cm-(i//5)*0.7*cm
+        x = 2 * cm + (i % 5) * 3.5 * cm
+        y = 4 * cm - (i // 5) * 0.7 * cm
         pdf.drawString(x, y, f"({i+1}) {ans}")
 
     pdf.save()
@@ -431,54 +439,59 @@ def generate_2digit_div_pdf():
     return buffer
 
 # -------------------------
-# 1ケタのわり算
+# 3ケタのわり算
 # -------------------------
-def generate_3digit_div_pdf():
+def generate_1digit_div_pdf():
     questions, answers = [], []
     num_questions = 20
     generated = set()
     i = 1
     while i <= num_questions:
-        a, b = random.randint(1, 999), random.randint(1, a)
-        result = a / b
-        que = f" {a} ÷ {b}"
-        q = f"({i}) {a} ÷ {b}"
-        if que not in generated:
-            questions.append(q)
+        b = random.randint(1, 999)          # 割る数
+        result = random.randint(1, 99)     # 答えを先に決める
+        a = b * result                    # 割られる数（必ず割り切れる）
+
+        q_text = f"({i}) {a} ÷ {b}"
+        if q_text not in generated:
+            questions.append(q_text)
             answers.append(result)
-            generated.add(que)
+            generated.add(q_text)
             i += 1
 
     buffer = io.BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=portrait(A4))
     pdfmetrics.registerFont(UnicodeCIDFont('HeiseiKakuGo-W5'))
 
+    # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'わり算（3ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（3ケタ）')
 
+    # 問題
     pdf.setFont('Times-Roman', 12)
-    start_y = 25.5*cm
-    line_h = 0.8*cm
-    half = num_questions//2
+    start_y = 25.5 * cm
+    line_h = 0.8 * cm
+    half = num_questions // 2
     for i, q in enumerate(questions):
         if i < half:
-            x, y = 2*cm, start_y-(i*line_h*2.5)
+            x, y = 2 * cm, start_y - (i * line_h * 2.5)
         else:
-            x, y = 11.5*cm, start_y-((i-half)*line_h*2.5)
+            x, y = 11.5 * cm, start_y - ((i - half) * line_h * 2.5)
         pdf.drawString(x, y, q)
 
+    # 解答
     pdf.setFont('HeiseiKakuGo-W5', 18)
-    pdf.drawString(2*cm, 5*cm, '【解答】')
+    pdf.drawString(2 * cm, 5 * cm, '【解答】')
     pdf.setFont('Times-Roman', 12)
     for i, ans in enumerate(answers):
-        x = 2*cm+(i%5)*3.5*cm
-        y = 4*cm-(i//5)*0.7*cm
+        x = 2 * cm + (i % 5) * 3.5 * cm
+        y = 4 * cm - (i // 5) * 0.7 * cm
         pdf.drawString(x, y, f"({i+1}) {ans}")
 
     pdf.save()
     buffer.seek(0)
     return buffer
+
 
 
 # -------------------------

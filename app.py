@@ -537,19 +537,19 @@ def generate_pdf_3digit_mul():
     return send_file(pdf_buffer, mimetype="application/pdf",
                      download_name="かけ算（3ケタ）.pdf")
 
-@app.route("/duv_1digit")
+@app.route("/div_1digit")
 def generate_pdf_1digit_div():
     pdf_buffer = generate_1digit_div_pdf()
     return send_file(pdf_buffer, mimetype="application/pdf",
                      download_name="わり算（1ケタ）.pdf")
 
-@app.route("/duv_2digit")
+@app.route("/div_2digit")
 def generate_pdf_2digit_div():
     pdf_buffer = generate_2digit_div_pdf()
     return send_file(pdf_buffer, mimetype="application/pdf",
                      download_name="わり算（2ケタ）.pdf")
 
-@app.route("/duv_3digit")
+@app.route("/div_3digit")
 def generate_pdf_3digit_div():
     pdf_buffer = generate_3digit_div_pdf()
     return send_file(pdf_buffer, mimetype="application/pdf",

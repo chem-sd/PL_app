@@ -441,7 +441,7 @@ def generate_2digit_div_pdf():
 # -------------------------
 # 3ケタのわり算
 # -------------------------
-def generate_1digit_div_pdf():
+def generate_3digit_div_pdf():
     questions, answers = [], []
     num_questions = 20
     generated = set()

@@ -9,7 +9,7 @@ import io, random
 app = Flask(__name__)
 
 # -------------------------
-# 1ケタの足し算・引き算
+# 足し算・引き算(レベル1)
 # -------------------------
 def generate_math_pdf():
     pm_list = ["+", "-"]
@@ -40,7 +40,7 @@ def generate_math_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算（1ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算(レベル1)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -67,7 +67,7 @@ def generate_math_pdf():
 
 
 # -------------------------
-# 2ケタの足し算・引き算
+# 足し算・引き算(レベル2)
 # -------------------------
 def generate_2digit_math_pdf():
     pm_list = ["+", "-"]
@@ -98,7 +98,7 @@ def generate_2digit_math_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算（2ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算(レベル2)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -125,7 +125,7 @@ def generate_2digit_math_pdf():
 
 
 # -------------------------
-# 3ケタの足し算・引き算
+# 足し算・引き算(レベル3)
 # -------------------------
 def generate_3digit_math_pdf():
     pm_list = ["+", "-"]
@@ -156,7 +156,7 @@ def generate_3digit_math_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算（3ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, '足し算・引き算(レベル3)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -183,7 +183,7 @@ def generate_3digit_math_pdf():
 
 
 # -------------------------
-# 1ケタのかけ算
+# かけ算(レベル1)
 # -------------------------
 def generate_1digit_mul_pdf():
     questions, answers = [], []
@@ -207,7 +207,7 @@ def generate_1digit_mul_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'かけ算（1ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, 'かけ算(レベル1)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -233,7 +233,7 @@ def generate_1digit_mul_pdf():
     return buffer
 
 # -------------------------
-# 2ケタのかけ算
+# かけ算(レベル2)
 # -------------------------
 def generate_2digit_mul_pdf():
     questions, answers = [], []
@@ -257,7 +257,7 @@ def generate_2digit_mul_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'かけ算（2ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, 'かけ算(レベル2)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -280,8 +280,10 @@ def generate_2digit_mul_pdf():
 
     pdf.save()
     buffer.seek(0)
-    return buffer# -------------------------
-# 3ケタのかけ算
+    return buffer# 
+
+-------------------------
+# かけ算(レベル3)
 # -------------------------
 def generate_3digit_mul_pdf():
     questions, answers = [], []
@@ -305,7 +307,7 @@ def generate_3digit_mul_pdf():
 
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width/2, height-2*cm, 'かけ算（3ケタ）')
+    pdf.drawCentredString(width/2, height-2*cm, 'かけ算(レベル3)')
 
     pdf.setFont('Times-Roman', 12)
     start_y = 25.5*cm
@@ -331,7 +333,7 @@ def generate_3digit_mul_pdf():
     return buffer
 
 # -------------------------
-# 1ケタのわり算
+# わり算(レベル1)
 # -------------------------
 def generate_1digit_div_pdf():
     questions, answers = [], []
@@ -357,7 +359,7 @@ def generate_1digit_div_pdf():
     # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（1ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算(レベル1)')
 
     # 問題
     pdf.setFont('Times-Roman', 12)
@@ -385,7 +387,7 @@ def generate_1digit_div_pdf():
     return buffer
 
 # -------------------------
-# 2ケタのわり算
+# わり算(レベル2)
 # -------------------------
 def generate_2digit_div_pdf():
     questions, answers = [], []
@@ -411,7 +413,7 @@ def generate_2digit_div_pdf():
     # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（2ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算(レベル2)')
 
     # 問題
     pdf.setFont('Times-Roman', 12)
@@ -439,7 +441,7 @@ def generate_2digit_div_pdf():
     return buffer
 
 # -------------------------
-# 3ケタのわり算
+# わり算(レベル3)
 # -------------------------
 def generate_3digit_div_pdf():
     questions, answers = [], []
@@ -465,7 +467,7 @@ def generate_3digit_div_pdf():
     # タイトル
     pdf.setFont('HeiseiKakuGo-W5', 25)
     width, height = A4
-    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算（3ケタ）')
+    pdf.drawCentredString(width / 2, height - 2 * cm, 'わり算(レベル3)')
 
     # 問題
     pdf.setFont('Times-Roman', 12)
@@ -502,15 +504,15 @@ def index():
     return render_template_string('''
     <h1>計算問題PDF生成</h1>
     <ul>
-        <li><a href="/pm_1digit" target="_blank">1ケタの足し算・引き算</a></li>
-        <li><a href="/pm_2digit" target="_blank">2ケタの足し算・引き算</a></li>
-        <li><a href="/pm_3digit" target="_blank">3ケタの足し算・引き算</a></li>
-        <li><a href="/mul_1digit" target="_blank">1ケタのかけ算</a></li>
-        <li><a href="/mul_2digit" target="_blank">2ケタのかけ算</a></li>
-        <li><a href="/mul_3digit" target="_blank">3ケタのかけ算</a></li>
-        <li><a href="/div_1digit" target="_blank">1ケタのわり算</a></li>
-        <li><a href="/div_2digit" target="_blank">2ケタのわり算</a></li>
-        <li><a href="/div_3digit" target="_blank">3ケタのわり算</a></li>
+        <li><a href="/pm_1digit" target="_blank">足し算・引き算(レベル1)</a></li>
+        <li><a href="/pm_2digit" target="_blank">足し算・引き算(レベル2)</a></li>
+        <li><a href="/pm_3digit" target="_blank">足し算・引き算(レベル3)</a></li>
+        <li><a href="/mul_1digit" target="_blank">かけ算(レベル1)</a></li>
+        <li><a href="/mul_2digit" target="_blank">かけ算(レベル2)</a></li>
+        <li><a href="/mul_3digit" target="_blank">かけ算(レベル3)</a></li>
+        <li><a href="/div_1digit" target="_blank">わり算(レベル1)</a></li>
+        <li><a href="/div_2digit" target="_blank">わり算(レベル2)</a></li>
+        <li><a href="/div_3digit" target="_blank">わり算(レベル3)</a></li>
     </ul>
     ''')
 
